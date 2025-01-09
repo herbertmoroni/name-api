@@ -32,7 +32,7 @@ name-api/
 
 1. Clone the repository:
 ```bash
-git clone [your-repository-url]
+git clone `https://github.com/herbertmoroni/name-api.git`
 cd name-api
 ```
 
