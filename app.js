@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Import routes
-const homeRoute = require('./routes/index.js');
+const homeRoute = require('./routes'); 
 
 // Use routes
 app.use('/', homeRoute);
