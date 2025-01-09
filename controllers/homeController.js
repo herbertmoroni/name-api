@@ -1,7 +1,3 @@
-// exports.getName = (req, res) => {
-//     res.json({ name: "Moroni Gois" });
-// };
-
 exports.getName = (req, res) => {
     res.send(`
         <!DOCTYPE html>
