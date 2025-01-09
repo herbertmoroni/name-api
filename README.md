@@ -64,16 +64,6 @@ Example response:
 This application is deployed on Render. You can access the live version at:
 [Your-Render-URL]
 
-## Development
-
-To contribute to this project:
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
 ## Built With
 
 - [Node.js](https://nodejs.org/) - JavaScript runtime
@@ -83,7 +73,3 @@ To contribute to this project:
 ## Author
 
 Herbert Moroni Gois
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details
