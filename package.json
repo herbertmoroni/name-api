@@ -1,0 +1,15 @@
+{
+  "name": "name-api",
+  "version": "1.0.0",
+  "description": "A simple Node.js API that displays a name when accessing the home route. This project demonstrates basic web server setup using Express.js, proper route handling, and deployment configuration. Also, I am using it to test Render for the first time.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
