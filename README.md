@@ -18,9 +18,7 @@ name-api/
 ## Features
 
 - Express.js web server
-- MVC architecture with separate routes and controllers
 - Deployed on Render
-- Returns JSON response with a name
 
 ## Prerequisites
 
@@ -62,7 +60,7 @@ Example response:
 ## Deployment
 
 This application is deployed on Render. You can access the live version at:
-[Your-Render-URL]
+(https://name-api-whdx.onrender.com)
 
 ## Built With
 
