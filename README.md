@@ -60,7 +60,7 @@ Example response:
 ## Deployment
 
 This application is deployed on Render. You can access the live version at:
-(https://name-api-whdx.onrender.com)
+https://name-api-whdx.onrender.com
 
 ## Built With
 
