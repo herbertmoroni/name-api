@@ -1,12 +1,22 @@
 const express = require('express');
+const dotenv = require('dotenv');
+const connectDB = require('./db/connect');
+
+// Load environment variables
+dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 3000;
 
+connectDB();
+
 // Import routes
 const homeRoute = require('./routes'); 
+const contactsRoute = require('./routes/contacts');
 
 // Use routes
 app.use('/', homeRoute);
+app.use('/contacts', contactsRoute);
 
 app.listen(port, () => {
     console.log(`Server running at: `);
