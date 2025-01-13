@@ -4,7 +4,10 @@ GET http://localhost:3000/contacts
 ### Get contact by ID
 GET http://localhost:3000/contacts/6781b1580c540ea0da1546cc
 
-### Render Tests (Update with your Render URL)
+
+
+
+### Render Tests for contacts
 GET https://name-api-whdx.onrender.com/contacts
 ###
 GET https://name-api-whdx.onrender.com/contacts/6781b1580c540ea0da1546cc
