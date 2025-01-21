@@ -1,13 +1,72 @@
+### Local Tests for contacts
+
 ### Get all contacts
 GET http://localhost:3000/contacts
 
 ### Get contact by ID
-GET http://localhost:3000/contacts/6781b1580c540ea0da1546cc
+GET http://localhost:3000/contacts/678f0027fb25318570b64cfa
+
+### Create new contact
+POST http://localhost:3000/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Luiza",
+    "lastName": "Gois",
+    "email": "luizargois@hotmail.com",
+    "favoriteColor": "pink",
+    "birthday": "2014-01-01"
+}
+
+### Update contact
+PUT http://localhost:3000/contacts/6781b1580c540ea0da1546cc
+Content-Type: application/json
+
+{
+    "firstName": "Erika",
+    "lastName": "Ripoli",
+    "email": "eripoli39@hotmail.com",
+    "favoriteColor": "Blue",
+    "birthday": "1976-05-02"
+}
+
+### Delete contact
+DELETE http://localhost:3000/contacts/678eff16fb25318570b64ced
 
 
 
 
 ### Render Tests for contacts
+
+### Get all contacts
 GET https://name-api-whdx.onrender.com/contacts
-###
+
+### Get contact by ID
 GET https://name-api-whdx.onrender.com/contacts/6781b1580c540ea0da1546cc
+
+### Create new contact
+POST https://name-api-whdx.onrender.com/contacts
+Content-Type: application/json
+
+{
+    "firstName": "Luiza",
+    "lastName": "Gois",
+    "email": "luizargois@hotmail.com",
+    "favoriteColor": "pink",
+    "birthday": "2014-01-01"
+}
+
+### Update contact
+PUT https://name-api-whdx.onrender.com/contacts/6781b1580c540ea0da1546cc
+Content-Type: application/json
+
+{
+    "firstName": "Erika",
+    "lastName": "Ripoli",
+    "email": "eripoli39@hotmail.com",
+    "favoriteColor": "Blue",
+    "birthday": "1976-05-02"
+}
+
+### Delete contact
+DELETE https://name-api-whdx.onrender.com/contacts/6781b1580c540ea0da1546cc
