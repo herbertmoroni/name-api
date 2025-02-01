@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const homeController = require('../controllers/homeController');
 
-router.get('/', homeController.getName);
+const swaggerUi = require('swagger-ui-express');
+const swaggerFile = require('../swagger.json');
+
+router.use('/contacts', require('./contacts'));
+router.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 module.exports = router;

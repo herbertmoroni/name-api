@@ -6,8 +6,8 @@ const doc = {
     description: 'API for managing contacts',
     version: '1.0.0'
   },
-  //host: 'name-api-whdx.onrender.com',
-  host: 'localhost:3000',
+  host: 'name-api-whdx.onrender.com',
+  //host: 'localhost:3000',
   schemes: ['http'],
   tags: [
     {
@@ -31,6 +31,6 @@ const doc = {
 
 const outputFile = './swagger.json';
 
-const endpointsFiles = ['./routes/*.js']; 
+const endpointsFiles = ['./routes/index.js']; 
 
 swaggerAutogen(outputFile, endpointsFiles, doc);
