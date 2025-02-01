@@ -1,5 +1,7 @@
 const Contact = require('../models/contact');
 
+// @swagger
+// /contacts:
 exports.getAllContacts = async (req, res) => {
   try {
     const contacts = await Contact.find();
@@ -9,6 +11,8 @@ exports.getAllContacts = async (req, res) => {
   }
 };
 
+// @swagger
+// /contacts/{id}:
 exports.getContactById = async (req, res) => {
   try {
     const contact = await Contact.findById(req.params.id);
