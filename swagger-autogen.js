@@ -7,8 +7,9 @@ const doc = {
     version: '1.0.0'
   },
   host: 'name-api-whdx.onrender.com',
+  schemes: ['https'],
   //host: 'localhost:3000',
-  schemes: ['http'],
+  //schemes: ['http'],
   tags: [
     {
       name: "Contact Operations",
