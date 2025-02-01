@@ -10,12 +10,6 @@ const doc = {
   schemes: ['https'],
   //host: 'localhost:3000',
   //schemes: ['http'],
-  tags: [
-    {
-      name: "Contact Operations",
-      description: "API endpoints for managing contacts"
-    }
-  ],
   definitions: {
     Contact: {
       type: 'object',
