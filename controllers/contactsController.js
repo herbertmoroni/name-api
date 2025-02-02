@@ -26,6 +26,18 @@ exports.getContactById = async (req, res) => {
 };
 
 exports.createContact = async (req, res) => {
+      /*  #swagger.parameters['newContact'] = {
+            in: 'body',
+            description: 'Contact information.',
+            required: true,
+            schema: {
+                firstName: "Erika",
+                lastName: "Gois",
+                email: "eripoli39@hotmail.com",
+                favoriteColor: "Blue",
+                birthday: "1976-05-02"
+            }
+    } */
   try {
     const contact = new Contact(req.body);
     const newContact = await contact.save();
@@ -36,6 +48,18 @@ exports.createContact = async (req, res) => {
 };
 
 exports.updateContact = async (req, res) => {
+    /*  #swagger.parameters['updateContact'] = {
+            in: 'body',
+            description: 'Updated contact information.',
+            required: true,
+            schema: {
+                firstName: "Erika",
+                lastName: "Gois",
+                email: "eripoli39@hotmail.com",
+                favoriteColor: "Blue",
+                birthday: "1976-05-02"
+            }
+    } */
   try {
     const contact = await Contact.findByIdAndUpdate(
       req.params.id,

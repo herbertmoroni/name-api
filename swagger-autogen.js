@@ -3,25 +3,12 @@ const swaggerAutogen = require('swagger-autogen')();
 const doc = {
   info: {
     title: 'Contacts API',
-    description: 'API for managing contacts',
-    version: '1.0.0'
+    description: 'API for managing contacts'
   },
   host: 'name-api-whdx.onrender.com',
   schemes: ['https'],
   //host: 'localhost:3000',
   //schemes: ['http'],
-  definitions: {
-    Contact: {
-      type: 'object',
-      properties: {
-        firstName: { type: 'string', example: 'Moroni' },
-        lastName: { type: 'string', example: 'Gois' },
-        email: { type: 'string', example: 'herbertmoroni@gmail.com' },
-        favoriteColor: { type: 'string', example: 'green' },
-        birthday: { type: 'string', format: 'date', example: '1982-10-14' }
-      }
-    }
-  }
 };
 
 const outputFile = './swagger.json';
