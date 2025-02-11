@@ -9,8 +9,8 @@ const doc = {
     title: 'Contacts API',
     description: 'API for managing contacts'
   },
-  host: process.env.NODE_ENV === 'production' ? 'name-api-whdx.onrender.com' : 'localhost:3000',
-  schemes: process.env.NODE_ENV === 'production' ? ['https'] : ['http'],
+  host: process.env.NODE_ENV === 'dev' ? 'localhost:3000' : 'name-api-whdx.onrender.com' ,
+  schemes: process.env.NODE_ENV === 'dev' ? ['http'] : ['https'],
 };
 
 console.log('process.env.NODE_ENV', process.env.NODE_ENV);
