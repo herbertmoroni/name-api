@@ -5,7 +5,7 @@ const doc = {
     title: 'Contacts API',
     description: 'API for managing contacts'
   },
-  host: process.env.NODE_ENV === 'production' ? 'your-production-domain.com' : 'localhost:3000',
+  host: process.env.NODE_ENV === 'production' ? 'https://name-api-whdx.onrender.com' : 'localhost:3000',
   schemes: process.env.NODE_ENV === 'production' ? ['https'] : ['http'],
 };
 
