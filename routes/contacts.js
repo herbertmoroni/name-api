@@ -2,10 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const contactsController = require('../controllers/contactsController');
-const { contactValidationRules, 
-  idValidationRules, 
-  validateRequest 
-} = require('../middleware/validateContact');
+const { contactValidationRules, idValidationRules, validateRequest } = require('../middleware/validateContact');
 
 router.get('/', contactsController.getAllContacts);
 router.get('/:id', idValidationRules, validateRequest, contactsController.getContactById);
