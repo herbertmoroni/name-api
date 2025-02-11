@@ -1,88 +1,107 @@
 const Contact = require('../models/contact');
+const asyncHandler = require('../middleware/asyncHandler');
 
 // @swagger
 // /contacts:
-exports.getAllContacts = async (req, res) => {
-  try {
-    const contacts = await Contact.find();
-    res.status(200).json(contacts);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-};
+exports.getAllContacts = asyncHandler(async (req, res) => {
+  const contacts = await Contact.find();
+  res.status(200).json({
+    success: true,
+    data: contacts
+  });
+});
 
 // @swagger
 // /contacts/{id}:
-exports.getContactById = async (req, res) => {
-  try {
-    const contact = await Contact.findById(req.params.id);
-    if (!contact) {
-      return res.status(404).json({ message: 'Contact not found' });
-    }
-    res.status(200).json(contact);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+exports.getContactById = asyncHandler(async (req, res) => {
+  const contact = await Contact.findById(req.params.id);
+  
+  if (!contact) {
+    return res.status(404).json({
+      success: false,
+      error: {
+        message: 'Contact not found'
+      }
+    });
   }
-};
 
-exports.createContact = async (req, res) => {
-      /*  #swagger.parameters['newContact'] = {
-            in: 'body',
-            description: 'Contact information.',
-            required: true,
-            schema: {
-                firstName: "Erika",
-                lastName: "Gois",
-                email: "eripoli39@hotmail.com",
-                favoriteColor: "Blue",
-                birthday: "1976-05-02"
-            }
-    } */
-  try {
-    const contact = new Contact(req.body);
-    const newContact = await contact.save();
-    res.status(201).json({ _id: newContact._id });
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
+  res.status(200).json({
+    success: true,
+    data: contact
+  });
+});
 
-exports.updateContact = async (req, res) => {
-    /*  #swagger.parameters['updateContact'] = {
-            in: 'body',
-            description: 'Updated contact information.',
-            required: true,
-            schema: {
-                firstName: "Erika",
-                lastName: "Gois",
-                email: "eripoli39@hotmail.com",
-                favoriteColor: "Blue",
-                birthday: "1976-05-02"
-            }
-    } */
-  try {
-    const contact = await Contact.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    );
-    if (!contact) {
-      return res.status(404).json({ message: 'Contact not found' });
-    }
-    res.status(204).send();
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-};
+exports.createContact = asyncHandler(async (req, res) => {
+  /*  #swagger.parameters['newContact'] = {
+        in: 'body',
+        description: 'Contact information.',
+        required: true,
+        schema: {
+            firstName: "Erika",
+            lastName: "Gois",
+            email: "eripoli39@hotmail.com",
+            favoriteColor: "Blue",
+            birthday: "1976-05-02"
+        }
+  } */
+  const contact = await Contact.create(req.body);
 
-exports.deleteContact = async (req, res) => {
-  try {
-    const contact = await Contact.findByIdAndDelete(req.params.id);
-    if (!contact) {
-      return res.status(404).json({ message: 'Contact not found' });
+  res.status(201).json({
+    success: true,
+    data: {
+      _id: contact._id
     }
-    res.status(200).send();
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  });
+});
+
+exports.updateContact = asyncHandler(async (req, res) => {
+  /*  #swagger.parameters['updateContact'] = {
+        in: 'body',
+        description: 'Updated contact information.',
+        required: true,
+        schema: {
+            firstName: "Erika",
+            lastName: "Gois",
+            email: "eripoli39@hotmail.com",
+            favoriteColor: "Blue",
+            birthday: "1976-05-02"
+        }
+  } */
+  const contact = await Contact.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true, runValidators: true }
+  );
+  
+  if (!contact) {
+    return res.status(404).json({
+      success: false,
+      error: {
+        message: 'Contact not found'
+      }
+    });
   }
-};
+  
+  res.status(200).json({
+    success: true,
+    data: contact
+  });
+});
+
+exports.deleteContact = asyncHandler(async (req, res) => {
+  const contact = await Contact.findByIdAndDelete(req.params.id);
+  
+  if (!contact) {
+    return res.status(404).json({
+      success: false,
+      error: {
+        message: 'Contact not found'
+      }
+    });
+  }
+  
+  res.status(200).json({
+    success: true,
+    data: null
+  });
+});

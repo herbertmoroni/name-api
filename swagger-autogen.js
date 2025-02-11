@@ -5,10 +5,8 @@ const doc = {
     title: 'Contacts API',
     description: 'API for managing contacts'
   },
-  host: 'name-api-whdx.onrender.com',
-  schemes: ['https'],
-  //host: 'localhost:3000',
-  //schemes: ['http'],
+  host: process.env.NODE_ENV === 'production' ? 'your-production-domain.com' : 'localhost:3000',
+  schemes: process.env.NODE_ENV === 'production' ? ['https'] : ['http'],
 };
 
 const outputFile = './swagger.json';

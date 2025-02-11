@@ -1,8 +1,8 @@
 const express = require('express');
-var cors = require('cors')
-
+const cors = require('cors')
 const dotenv = require('dotenv');
 const connectDB = require('./db/connect');
+const errorHandler = require('./middleware/errorHandler');
 
 // Load environment variables
 dotenv.config();
@@ -10,15 +10,18 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Add body parsing middleware
+// Middleware
 app.use(cors())
 app.use(express.json());
 
+// Connect to database
 connectDB();
 
 // Routes
 app.use('/', require('./routes'));
 
+// Error handling middleware (must be after routes)
+app.use(errorHandler);
 
 app.listen(port, () => {
     console.log(`Server running at: `);
