@@ -19,8 +19,9 @@ contacts-api/
 │   └── index.js
 ├── db/
 │   └── connect.js
+├── docs/
+│   └── swagger.js
 ├── server.js
-├── swagger-autogen.js
 └── README.md
 ```
 
@@ -28,12 +29,12 @@ contacts-api/
 
 - RESTful API endpoints for CRUD operations
 - MongoDB integration with Mongoose
-- Comprehensive input validation
-- Robust error handling
-- API documentation with Swagger
+- Comprehensive input validation using express-validator
+- Robust error handling with custom middleware
+- API documentation with Swagger UI
 - CORS support
 - Environment-based configuration
-- Production-ready error handling
+- Production-ready error handling with detailed responses
 
 ## Prerequisites
 
@@ -133,36 +134,32 @@ POST /contacts
 ## Error Handling
 
 The API implements comprehensive error handling for:
-- Validation errors
-- Database errors
-- Duplicate entries
+- Validation errors (express-validator)
+- Database errors (Mongoose)
+- Duplicate entries (MongoDB unique constraint)
 - Invalid ObjectId format
 - Not found errors
-- Internal server errors
+- Internal server errors with environment-based details
 
 ## Security Features
 
-- Input validation and sanitization
+- Input validation and sanitization with express-validator
 - CORS configuration
 - Environment-based error details
 - MongoDB injection protection
 - Request payload size limits
+- Email normalization
 
 ## Development
 
-### Generate Swagger Documentation
-```bash
-npm run swagger-autogen
-```
-
 ### Run in Development Mode
 ```bash
-npm run dev
+npm start
 ```
 
 ## Deployment
 
-The application can be deployed to any Node.js hosting platform. Make sure to set the following environment variables:
+The application is configured for deployment on Render. Environment variables required:
 - `PORT`
 - `MONGODB_URI`
 - `NODE_ENV=production`
@@ -174,7 +171,10 @@ The application can be deployed to any Node.js hosting platform. Make sure to se
 - [MongoDB](https://www.mongodb.com/) - Database
 - [Mongoose](https://mongoosejs.com/) - MongoDB ODM
 - [Express Validator](https://express-validator.github.io/) - Input validation
-- [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express) - API documentation
+- [Swagger UI Express](https://www.npmjs.com/package/swagger-ui-express) - API documentation UI
+- [Swagger JSDoc](https://www.npmjs.com/package/swagger-jsdoc) - OpenAPI/Swagger specification
+- [CORS](https://www.npmjs.com/package/cors) - Cross-Origin Resource Sharing
+- [dotenv](https://www.npmjs.com/package/dotenv) - Environment configuration
 
 ## Suggested Improvements
 
