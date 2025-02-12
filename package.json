@@ -4,8 +4,7 @@
   "description": "A simple Node.js API that displays a name when accessing the home route. This project demonstrates basic web server setup using Express.js, proper route handling, and deployment configuration. Also, I am using it to test Render for the first time.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "swagger": "node swagger-autogen.js"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
